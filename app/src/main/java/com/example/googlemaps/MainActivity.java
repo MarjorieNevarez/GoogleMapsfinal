@@ -1,11 +1,9 @@
 package com.example.googlemaps;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,10 +11,8 @@ import android.widget.TextView;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -35,7 +31,7 @@ public class MainActivity
 
         SupportMapFragment mapFragment = (SupportMapFragment)
                 getSupportFragmentManager()
-                        .findFragmentById(R.id.mapaFacultad);
+                        .findFragmentById(R.id.facultad);
         mapFragment.getMapAsync(this);
 
     }
@@ -71,22 +67,19 @@ public class MainActivity
         String[][] infoMarcadores = {
                 {"Facultad de Ciencias de la Ingenieria"
                         , "Dotar de una sólida preparación científica y tecnológica, con profundos conocimientos de las ciencias y de los procesos tecnológicos proporcionando los fundamentos, herramientas y habilidades necesarias para hacer ingeniería, incluyendo la enseñanza de normas nacionales e internacionales, procesos administrativos, planeación estratégica, control de calidad y liderazgo sin olvidar la responsabilidad con la ecología y el entorno social, procurando el avance y transmisión del saber universal, adaptándolo para el servicio de la comunidad en pos del desarrollo del país a través de su programa de educación formal."
-                        , "  facultadci@uteq.edu.ec", "@drawable/fci"},
+                        , "  facultadci@uteq.edu.ec", "fci"},
 
                 {"Instituto informática"
-                        ,"Se  constituye en un referente de sostenibilidad académica, reconocida regionalmente por formar profesionales cualificados"
-                        ,"Formar íntegramente profesionales de la salud con sólidas bases científicas, humanísticas que le permitan actuar ante las necesidades de salud",
-                        "fcs@uteq.edu.ec", "@drawable/salud"},
+                        ,"El Ingeniero Telemático puede desarrollarse en Empresas de Telecomunicaciones, Empresas Financieras, Instituciones gubernamentales, Redes de comunicaciones privadas, Consultorías independientes etc."
+                        , "carreratelematica@uteq.edu.ec", "instituto"},
 
                 {"Biblioteca"
-                        , "Su función principal es liderar y dirigir la universidad, estableciendo objetivos, gestionando recursos, promoviendo la excelencia académica y representando a la institución ante diversas entidades. "
-                        , "Además, supervisa la gestión administrativa y académica"
-                        , "info@uteq.edu.ec", "@drawable/edirectorado"},
+                        ,"Campus Central Av. Quito km. 11/2 vía a Santo Domingo de los Tsáchilas"
+                        ,"biblioteca@uteq.edu.ec", "biblioteca"},
 
                 {"Rectorado"
-                        , "Es el centro neurálgico donde se coordinan y ejecutan las políticas, procedimientos y decisiones administrativas que son fundamentales para el funcionamiento adecuado de la universidad."
-                        , "Donde se llevan a cabo las actividades relacionadas con la gestión y administración de la institución."
-                        , "info@uteq.edu.ec", "@drawable/administrativo"}
+                        , "Edificio de rectorado y administrativos."
+                        , "info@uteq.edu.ec", "rectorado"}
         };
         //Indice de colores
         float[] coloresMarcadores = {
@@ -104,13 +97,11 @@ public class MainActivity
             @Override
             public View getInfoContents(@NonNull Marker marker) {
                 // referencias de layout_facultad
-                View infoLayoutFacultad = getLayoutInflater().inflate(R.id.imgFacultad, null);
-                TextView edificiofacultad = infoLayoutFacultad.findViewById(R.id.infoFacultad);
-                TextView vision = infoLayoutFacultad.findViewById(R.id.infoVision);
-                TextView cordenada = infoLayoutFacultad.findViewById(R.id.infoCoordenada);
-                TextView mision = infoLayoutFacultad.findViewById(R.id.infoMision);
-                TextView correo = infoLayoutFacultad.findViewById(R.id.infoCorreo);
-                ImageView logo = infoLayoutFacultad.findViewById(R.id.imgFacultad);
+                View infoLayoutFacultad = getLayoutInflater().inflate(R.id.facultad, null);
+                TextView edificiofacultad = infoLayoutFacultad.findViewById(R.id.informacion);
+                TextView cordenada = infoLayoutFacultad.findViewById(R.id.coordenada);
+                TextView correo = infoLayoutFacultad.findViewById(R.id.correo);
+                ImageView logo = infoLayoutFacultad.findViewById(R.id.facultad);
 
                 TextView Latitud =  findViewById(R.id.lblatitud);
                 TextView Longitud =  findViewById(R.id.lblongitud);
@@ -125,8 +116,7 @@ public class MainActivity
 
                         edificiofacultad.setText(infoMarcadores[p][0]);
                         cordenada.setText(String.valueOf(coordenadaFacultad[p]));
-                        vision.setText(infoMarcadores[p][1]);
-                        mision.setText(infoMarcadores[p][2]);
+
                         correo.setText(infoMarcadores[p][3]);
                         String urlLogo = String.valueOf(infoMarcadores[p][4]);
                         int resourceId = getResources().getIdentifier(urlLogo, "drawable", getPackageName());
