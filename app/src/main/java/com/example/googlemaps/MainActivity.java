@@ -67,7 +67,7 @@ public class MainActivity
         String[][] infoMarcadores = {
                 {"Facultad de Ciencias de la Ingenieria"
                         , "Dotar de una sólida preparación científica y tecnológica, con profundos conocimientos de las ciencias y de los procesos tecnológicos proporcionando los fundamentos, herramientas y habilidades necesarias para hacer ingeniería, incluyendo la enseñanza de normas nacionales e internacionales, procesos administrativos, planeación estratégica, control de calidad y liderazgo sin olvidar la responsabilidad con la ecología y el entorno social, procurando el avance y transmisión del saber universal, adaptándolo para el servicio de la comunidad en pos del desarrollo del país a través de su programa de educación formal."
-                        , "  facultadci@uteq.edu.ec", "fci"},
+                        , "  facultadci@uteq.edu.ec", "fci."},
 
                 {"Instituto informática"
                         ,"El Ingeniero Telemático puede desarrollarse en Empresas de Telecomunicaciones, Empresas Financieras, Instituciones gubernamentales, Redes de comunicaciones privadas, Consultorías independientes etc."
