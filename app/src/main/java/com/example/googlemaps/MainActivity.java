@@ -81,12 +81,12 @@ public class MainActivity
                         , "Edificio de rectorado y administrativos."
                         , "info@uteq.edu.ec", "rectorado"}
         };
-        //Indice de colores
+
         float[] coloresMarcadores = {
                 BitmapDescriptorFactory.HUE_BLUE,
                 BitmapDescriptorFactory.HUE_CYAN,
-                BitmapDescriptorFactory.HUE_ORANGE,
-                BitmapDescriptorFactory.HUE_MAGENTA
+                BitmapDescriptorFactory.HUE_BLUE,
+                BitmapDescriptorFactory.HUE_CYAN
         };
 
         for (int i=0; i<infoMarcadores.length; i++) {
@@ -96,8 +96,7 @@ public class MainActivity
         mapa.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override
             public View getInfoContents(@NonNull Marker marker) {
-                // referencias de layout_facultad
-                View infoLayoutFacultad = getLayoutInflater().inflate(R.id.facultad, null);
+                View infoLayoutFacultad = getLayoutInflater().inflate(R.id.facultad,null);
                 TextView edificiofacultad = infoLayoutFacultad.findViewById(R.id.informacion);
                 TextView cordenada = infoLayoutFacultad.findViewById(R.id.coordenada);
                 TextView correo = infoLayoutFacultad.findViewById(R.id.correo);
@@ -106,7 +105,6 @@ public class MainActivity
                 TextView Latitud =  findViewById(R.id.lblatitud);
                 TextView Longitud =  findViewById(R.id.lblongitud);
 
-                // Marcador de vistas
                 String info = marker.getTitle();
                 for (int p=0; p<infoMarcadores.length; p++){
                     if(info.equals(infoMarcadores[p][0])){
